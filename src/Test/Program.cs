@@ -74,6 +74,8 @@
             Console.WriteLine("");
             Console.WriteLine("PythonSharp Test Console");
             Console.WriteLine("");
+            Console.WriteLine("Please set the variables _PythonExecutable and _PipCommand according to your environment.");
+            Console.WriteLine("");
         }
 
         private static void Menu()
