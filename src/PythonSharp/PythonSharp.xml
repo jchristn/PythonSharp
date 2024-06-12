@@ -1,0 +1,271 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PythonSharp</name>
+    </assembly>
+    <members>
+        <member name="T:PythonSharp.ExecutionModeEnum">
+            <summary>
+            Execution mode.
+            </summary>
+        </member>
+        <member name="F:PythonSharp.ExecutionModeEnum.Filesystem">
+            <summary>
+            Execute using the filesystem.
+            </summary>
+        </member>
+        <member name="T:PythonSharp.LoggingSettings">
+            <summary>
+            Logging settings.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.LoggingSettings.Logger">
+            <summary>
+            Method to invoke to emit log messages.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.LoggingSettings.LogHeader">
+            <summary>
+            Header to prepend to log messages.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.LoggingSettings.ConsoleLogging">
+            <summary>
+            Boolean to indicate whether or not log messages should be emitted to the console.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.LoggingSettings.LogShellCommands">
+            <summary>
+            Boolean to indicate whether or not log messages should be emitted containing shell commands.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.LoggingSettings.LogConsoleOutput">
+            <summary>
+            Boolean to indicate whether or not console output should be logged.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.LoggingSettings.LogErrorOutput">
+            <summary>
+            Boolean to indicate whether or not error output should be logged.
+            </summary>
+        </member>
+        <member name="M:PythonSharp.LoggingSettings.#ctor">
+            <summary>
+            Instantiate.
+            </summary>
+        </member>
+        <member name="M:PythonSharp.LoggingSettings.Log(PythonSharp.Severity,System.String)">
+            <summary>
+            Emit a log message.
+            </summary>
+            <param name="sev">Severity.</param>
+            <param name="msg">Message.</param>
+        </member>
+        <member name="M:PythonSharp.LoggingSettings.LogShellCommand(System.String,System.Nullable{System.Int32})">
+            <summary>
+            Log shell command.
+            </summary>
+            <param name="cmd">Command.</param>
+            <param name="result">Result.</param>
+        </member>
+        <member name="T:PythonSharp.PythonEnvironment">
+            <summary>
+            Python environment.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.PythonEnvironment.PythonExecutable">
+            <summary>
+            Provide the full path to the Python executable.  Provide a full path and filename.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.PythonEnvironment.PipCommand">
+            <summary>
+            Provide the full path to the pip executable.  Provide a full path and filename.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.PythonEnvironment.ScriptPath">
+            <summary>
+            Script path.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.PythonEnvironment.VirtualEnvironmentPath">
+            <summary>
+            Virtual environment path.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.PythonEnvironment.RequirementsFile">
+            <summary>
+            Requirements file.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.PythonEnvironment.PathSeparator">
+            <summary>
+            Separator character for path environment variables.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.PythonEnvironment.DirectorySeparator">
+            <summary>
+            Separator character for directory paths. 
+            </summary>
+        </member>
+        <member name="P:PythonSharp.PythonEnvironment.ShellCommandWindows">
+            <summary>
+            Shell command for Windows environments.  Default is cmd.exe.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.PythonEnvironment.ShellCommandLinux">
+            <summary>
+            Shell command for Linux environments.  Default is bash.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.PythonEnvironment.ShellCommandMac">
+            <summary>
+            Shell command for Mac environments.  Default is bash.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.PythonEnvironment.QuietRequirementsInstallation">
+            <summary>
+            Boolean indicating whether or not requirements installation via pip should be configured as quiet.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.PythonEnvironment.ExecutionMode">
+            <summary>
+            Execution mode.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.PythonEnvironment.DisplayPipPackages">
+            <summary>
+            Boolean indicating whether or not pip packages should be output to the console before running.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.PythonEnvironment.DisplayFullScript">
+            <summary>
+            Boolean indicating whether or not the generated full script should be output to the console before running.
+            </summary>
+        </member>
+        <member name="M:PythonSharp.PythonEnvironment.#ctor">
+            <summary>
+            Instantiate.
+            </summary>
+        </member>
+        <member name="T:PythonSharp.PythonResult">
+            <summary>
+            Python result.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.PythonResult.GUID">
+            <summary>
+            GUID.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.PythonResult.Success">
+            <summary>
+            Success or failure result.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.PythonResult.Data">
+            <summary>
+            Data.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.PythonResult.ConsoleOutput">
+            <summary>
+            Console output.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.PythonResult.ErrorOutput">
+            <summary>
+            Error output.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.PythonResult.Result">
+            <summary>
+            Result from executing shell commands.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.PythonResult.Exception">
+            <summary>
+            Exception, if any.
+            </summary>
+        </member>
+        <member name="M:PythonSharp.PythonResult.#ctor">
+            <summary>
+            Instantiate.
+            </summary>
+        </member>
+        <member name="T:PythonSharp.PythonRunner">
+            <summary>
+            Python runner.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.PythonRunner.Logging">
+            <summary>
+            Logging settings.
+            </summary>
+        </member>
+        <member name="P:PythonSharp.PythonRunner.PythonEnvironment">
+            <summary>
+            Python environment.
+            </summary>
+        </member>
+        <member name="M:PythonSharp.PythonRunner.#ctor(PythonSharp.PythonEnvironment)">
+            <summary>
+            Instantiate.
+            </summary>
+        </member>
+        <member name="M:PythonSharp.PythonRunner.InitializeVirtualEnvironment">
+            <summary>
+            Initialize the virtual environment specified in the PythonEnvironment object.
+            </summary>
+        </member>
+        <member name="M:PythonSharp.PythonRunner.RunScript(System.String,System.String,System.String)">
+            <summary>
+            Run a Python script.
+            </summary>
+            <param name="scriptFile">Script file.</param>
+            <param name="inputData">Input data.</param>
+            <param name="contentType">Content type.</param>
+            <returns>PythonResult.</returns>
+        </member>
+        <member name="T:PythonSharp.Severity">
+            <summary>
+            Log message severity.
+            </summary>
+        </member>
+        <member name="F:PythonSharp.Severity.Debug">
+            <summary>
+            Debug messages.
+            </summary>
+        </member>
+        <member name="F:PythonSharp.Severity.Info">
+            <summary>
+            Informational messages.
+            </summary>
+        </member>
+        <member name="F:PythonSharp.Severity.Warn">
+            <summary>
+            Warning messages.
+            </summary>
+        </member>
+        <member name="F:PythonSharp.Severity.Error">
+            <summary>
+            Error messages.
+            </summary>
+        </member>
+        <member name="F:PythonSharp.Severity.Alert">
+            <summary>
+            Alert messages.
+            </summary>
+        </member>
+        <member name="F:PythonSharp.Severity.Critical">
+            <summary>
+            Critical messages.
+            </summary>
+        </member>
+        <member name="F:PythonSharp.Severity.Emergency">
+            <summary>
+            Emergency messages.
+            </summary>
+        </member>
+    </members>
+</doc>

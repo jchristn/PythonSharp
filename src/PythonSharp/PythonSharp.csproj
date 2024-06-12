@@ -2,7 +2,45 @@
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
+		<ApplicationIcon>logo.ico</ApplicationIcon>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<DocumentationFile>PythonSharp.xml</DocumentationFile>
+		<Title>PythonSharp is a simple library to integrate Python scripts and virtual environments</Title>
+		<Authors>Joel Christner</Authors>
+		<Description>PythonSharp is a simple library to integrate Python scripts and virtual environments into your application leveraging the shell.</Description>
+		<Copyright>(c)2024 Joel Christner</Copyright>
+		<PackageProjectUrl>https://github.com/jchristn/pythonsharp</PackageProjectUrl>
+		<PackageIcon>logo.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/jchristn/pythonsharp</RepositoryUrl>
+		<RepositoryType>github</RepositoryType>
+		<PackageTags>python virtual environment script</PackageTags>
+		<PackageReleaseNotes>Initial release</PackageReleaseNotes>
+		<AssemblyVersion>1.0.0</AssemblyVersion>
+		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Content Include="logo.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="..\..\Assets\logo.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Include="..\..\LICENSE.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Include="..\..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="RestWrapper" Version="3.0.20" />
@@ -14,6 +52,9 @@
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
 	  <None Update="Assets\logo.png">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="PythonSharp.xml">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>

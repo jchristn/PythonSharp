@@ -79,7 +79,7 @@ namespace PythonSharp
         /// <summary>
         /// Emit a log message.
         /// </summary>
-        /// <param name="severity">Severity.</param>
+        /// <param name="sev">Severity.</param>
         /// <param name="msg">Message.</param>
         internal void Log(Severity sev, string msg)
         {
