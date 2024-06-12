@@ -228,7 +228,7 @@
             }
             else
             {
-
+                if (path.Contains(" ")) path = path.Replace(" ", "\\ ");
             }
 
             return path;
