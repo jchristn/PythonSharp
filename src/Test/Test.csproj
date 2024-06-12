@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PythonSharp\PythonSharp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Sample1\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Inputty" Version="1.0.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Sample1\script.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Sample2\requirements.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Sample2\script.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
