@@ -87,7 +87,9 @@ _out_file.write(json.dumps(_resp_obj))
 
 ## User Script Requirements
 
-User scripts must implement a method `def process(req):` as the entrypoint for their code.  The input variable `req` is a dictionary (deserialized from the call to `runner.RunScript`), and this method should also return a dictionary.
+- User scripts must implement a method `def process(req):` as the entrypoint for their code
+- The input variable `req` to this method is a dictionary (deserialized from the JSON string supplied when invoking `runner.RunScript`)
+- The `def process(req):` method should return a dictionary
 
 ## Version History
 
