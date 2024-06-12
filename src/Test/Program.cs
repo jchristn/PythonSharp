@@ -74,7 +74,12 @@
             Console.WriteLine("");
             Console.WriteLine("PythonSharp Test Console");
             Console.WriteLine("");
-            Console.WriteLine("Please set the variables _PythonExecutable and _PipCommand according to your environment.");
+            Console.WriteLine("Please set the variables '_PythonExecutable' and '_PipCommand'");
+            Console.WriteLine("with full path and filename according to your environment.");
+            Console.WriteLine("");
+            Console.WriteLine("Currently using:");
+            Console.WriteLine("| Python : " + _PythonExecutable);
+            Console.WriteLine("| Pip    : " + _PipCommand);
             Console.WriteLine("");
         }
 
@@ -126,6 +131,7 @@
 
             PythonEnvironment env = new PythonEnvironment();
             env.PythonExecutable = _PythonExecutable;
+            env.PipCommand = _PipCommand;
             env.RequirementsFile = null;
             env.ScriptPath = "./sample1/";
             env.VirtualEnvironmentPath = null;
@@ -152,6 +158,7 @@
 
             PythonEnvironment env = new PythonEnvironment();
             env.PythonExecutable = _PythonExecutable;
+            env.PipCommand = _PipCommand;
             env.RequirementsFile = "./sample2/requirements.txt";
             env.ScriptPath = "./sample2/";
             env.VirtualEnvironmentPath = "./sample2/venv2";

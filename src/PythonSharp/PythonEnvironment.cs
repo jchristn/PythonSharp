@@ -48,6 +48,7 @@
                 _PipCommand = value;
             }
         }
+
         /// <summary>
         /// Script path.
         /// </summary>
