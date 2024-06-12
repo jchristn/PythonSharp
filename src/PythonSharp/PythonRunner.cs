@@ -230,6 +230,18 @@
             return path;
         }
 
+        private string BuildActivateCommand()
+        {
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                return PreparedPath(_PythonEnvironment.VirtualEnvironmentPath + "/scripts/activate");
+            }
+            else
+            {
+                return "source " + PreparedPath(_PythonEnvironment.VirtualEnvironmentPath + "/bin/activate");
+            }
+        }
+
         private string BuildPipRequirementsCommand(string requirementsFile)
         {
             return
@@ -321,7 +333,7 @@
             {
                 cmdEntriesList.Add("cd " + PreparedPath(_PythonEnvironment.VirtualEnvironmentPath));
                 cmdEntriesList.Add(PreparedPath(_PythonEnvironment.PythonExecutable) + " -m venv " + PreparedPath(_PythonEnvironment.VirtualEnvironmentPath));
-                cmdEntriesList.Add(PreparedPath(_PythonEnvironment.VirtualEnvironmentPath + "/scripts/activate"));
+                cmdEntriesList.Add(BuildActivateCommand());
             }
 
             if (_PythonEnvironment.DisplayPipPackages)

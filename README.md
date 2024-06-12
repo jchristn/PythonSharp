@@ -4,7 +4,7 @@
 
 PythonSharp is a simple library for invoking Python scripts from C# and retrieving their return value.
 
-Why not just use [pythonnet](https://github.com/pythonnet/pythonnet)?  Pythonnet is a fantastic and useful library.  However, it is challenged in being able to support multiple concurrent virtual environments.  Further, pythonnet provides near seamless integration with the .NET CLR, whereas PythonSharp is a wrapper library that invokes Python scripts using the shell.  To summarize, **you should use pythonnet in most cases, but consider PythonSharp when you need to support multiple virtual environments concurrently**.
+Why not just use [pythonnet](https://github.com/pythonnet/pythonnet)?  Pythonnet is a fantastic, useful, and well-written library, managed and maintained by an excellent community.  However, it is challenged in being able to support multiple concurrent virtual environments.  Further, pythonnet provides near seamless integration with the .NET CLR, whereas PythonSharp is a wrapper library that invokes Python scripts using the shell.  To summarize, **you should use pythonnet in most cases, but consider PythonSharp when you need to support multiple virtual environments concurrently**.
 
 [![NuGet Version](https://img.shields.io/nuget/v/PythonSharp.svg?style=flat)](https://www.nuget.org/packages/PythonSharp/) [![NuGet](https://img.shields.io/nuget/dt/PythonSharp.svg)](https://www.nuget.org/packages/PythonSharp) 
 
@@ -87,7 +87,7 @@ _out_file.write(json.dumps(_resp_obj))
 
 ## User Script Requirements
 
-User scripts must implement a method `def process(req):` as the entrypoint for their code.  
+User scripts must implement a method `def process(req):` as the entrypoint for their code.  The input variable `req` is a dictionary (deserialized from the call to `runner.RunScript`), and this method should also return a dictionary.
 
 ## Version History
 
