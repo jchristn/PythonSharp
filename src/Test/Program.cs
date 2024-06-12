@@ -17,6 +17,7 @@
 
         private static bool _RunForever = true;
         private static string _PythonExecutable = @"C:\Program Files\Python312\python.exe";
+        private static string _PipCommand = @"C:\Program Files\Python312\Scripts\pip.exe";
         private static bool _QuietRequirementsInstallation = false;
         private static bool _LogShellCommands = true;
         private static bool _LogConsoleOutput = true;
@@ -122,13 +123,13 @@
             string data = Inputty.GetString("Data:", null, true);
 
             PythonEnvironment env = new PythonEnvironment();
+            env.PythonExecutable = _PythonExecutable;
             env.RequirementsFile = null;
             env.ScriptPath = "./sample1/";
             env.VirtualEnvironmentPath = null;
             env.DisplayPipPackages = false;
             env.DisplayFullScript = true;
             env.ExecutionMode = ExecutionModeEnum.Filesystem;
-            env.PythonExecutable = _PythonExecutable;
             env.QuietRequirementsInstallation = _QuietRequirementsInstallation;
 
             PythonRunner runner = new PythonRunner(env);
@@ -148,12 +149,12 @@
             string data = Inputty.GetString("Data:", null, true);
 
             PythonEnvironment env = new PythonEnvironment();
+            env.PythonExecutable = _PythonExecutable;
             env.RequirementsFile = "./sample2/requirements.txt";
             env.ScriptPath = "./sample2/";
             env.VirtualEnvironmentPath = "./sample2/venv2";
             env.DisplayPipPackages = false;
             env.ExecutionMode = ExecutionModeEnum.Filesystem;
-            env.PythonExecutable = _PythonExecutable;
             env.QuietRequirementsInstallation = _QuietRequirementsInstallation;
 
             PythonRunner runner = new PythonRunner(env);

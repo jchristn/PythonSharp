@@ -12,7 +12,7 @@
         #region Public-Members
 
         /// <summary>
-        /// Python executable.
+        /// Provide the full path to the Python executable.  Provide a full path and filename.
         /// </summary>
         public string PythonExecutable
         {
@@ -30,6 +30,24 @@
             }
         }
 
+        /// <summary>
+        /// Provide the full path to the pip executable.  Provide a full path and filename.
+        /// </summary>
+        public string PipCommand
+        {
+            get
+            {
+                return _PipCommand;
+            }
+            set
+            {
+                if (String.IsNullOrEmpty(value)) throw new ArgumentNullException(nameof(PipCommand));
+                value = Path.GetFullPath(value);
+                if (!File.Exists(value)) throw new FileNotFoundException("The specified pip executable '" + value + "' was not found.");
+
+                _PipCommand = value;
+            }
+        }
         /// <summary>
         /// Script path.
         /// </summary>
@@ -181,6 +199,7 @@
         #region Private-Members
 
         private string _PythonExecutable = null;
+        private string _PipCommand = "pip";
         private string _ScriptPath = null;
         private string _VirtualEnvironmentPath = null;
         private string _RequirementsFile = null;

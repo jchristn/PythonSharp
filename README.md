@@ -4,7 +4,7 @@
 
 PythonSharp is a simple library for invoking Python scripts from C# and retrieving their return value.
 
-Why not just use [pythonnet](https://github.com/pythonnet/pythonnet)?  Pythonnet is a fantastic and useful library.  However, it is challenged in being able to support multiple concurrent virtual environments.  Further, pythonnet provides near seamless integration with the .NET CLR, whereas PythonSharp is a wrapper library that invokes Python scripts using the shell.
+Why not just use [pythonnet](https://github.com/pythonnet/pythonnet)?  Pythonnet is a fantastic and useful library.  However, it is challenged in being able to support multiple concurrent virtual environments.  Further, pythonnet provides near seamless integration with the .NET CLR, whereas PythonSharp is a wrapper library that invokes Python scripts using the shell.  To summarize, **you should use pythonnet in most cases, but consider PythonSharp when you need to support multiple virtual environments concurrently**.
 
 [![NuGet Version](https://img.shields.io/nuget/v/PythonSharp.svg?style=flat)](https://www.nuget.org/packages/PythonSharp/) [![NuGet](https://img.shields.io/nuget/dt/PythonSharp.svg)](https://www.nuget.org/packages/PythonSharp) 
 
@@ -26,8 +26,9 @@ using PythonSharp;
 // Create the environment object.
 PythonEnvironment env = new PythonEnvironment();
 
-// Set the base executable.
+// Set the base executable and pip command.
 env.PythonExecutable = "C:\\Program Files\\Python312\\python.exe";
+env.PipCommand = "C:\\Program Files\\Python312\\Scripts\\pip.exe";
 
 // Set up the virtual environment, or skip.  If it does not exist, PythonSharp will create it.
 env.VirtualEnvironmentPath = "./myscripts/venv/";

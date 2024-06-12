@@ -9,8 +9,7 @@
     using RestWrapper;
 
     /// <summary>
-    /// Python runner.  
-    /// Ensure both uvicorn and fastapi are installed via pip install.
+    /// Python runner.
     /// </summary>
     public class PythonRunner
     {
@@ -93,7 +92,6 @@
 
                 Shelli shell = new Shelli();
 
-                string pipBaseCommand = BuildPipBaseCommand();
                 string pipReqCommand = BuildPipRequirementsCommand(_PythonEnvironment.RequirementsFile);
                 cmd = "";
 
@@ -102,7 +100,6 @@
                     cmd =
                         PreparedPath(_PythonEnvironment.PythonExecutable) + " -m venv " + PreparedPath(_PythonEnvironment.VirtualEnvironmentPath) + " "
                         + "&& " + PreparedPath(_PythonEnvironment.VirtualEnvironmentPath + "/scripts/activate") + " "
-                        + "&& " + pipBaseCommand + " "
                         + (!String.IsNullOrEmpty(pipReqCommand)
                             ? "&& " + pipReqCommand + " "
                             : "")
@@ -116,7 +113,6 @@
                     cmd =
                         PreparedPath(_PythonEnvironment.PythonExecutable) + " -m venv " + PreparedPath(_PythonEnvironment.VirtualEnvironmentPath) + " "
                         + "; source " + PreparedPath(_PythonEnvironment.VirtualEnvironmentPath + "/bin/activate") + " "
-                        + "; " + pipBaseCommand + " "
                         + (!String.IsNullOrEmpty(pipReqCommand)
                             ? "; " + pipReqCommand + " "
                             : "")
@@ -234,18 +230,10 @@
             return path;
         }
 
-        private string BuildPipBaseCommand()
-        {
-            return
-                "pip install "
-                + (_PythonEnvironment.QuietRequirementsInstallation ? "-q " : "")
-                + "uvicorn fastapi";
-        }
-
         private string BuildPipRequirementsCommand(string requirementsFile)
         {
             return
-                "pip install "
+                PreparedPath(_PythonEnvironment.PipCommand) + " install "
                 + (_PythonEnvironment.QuietRequirementsInstallation ? "-q " : "")
                 + "-r " + Path.GetFullPath(_PythonEnvironment.RequirementsFile) + " ";
         }
@@ -337,7 +325,7 @@
             }
 
             if (_PythonEnvironment.DisplayPipPackages)
-                cmdEntriesList.Add("pip list");
+                cmdEntriesList.Add(PreparedPath(_PythonEnvironment.PipCommand) + " list");
 
             cmdEntriesList.Add("cd " + PreparedPath(_PythonEnvironment.ScriptPath));
             cmdEntriesList.Add(PreparedPath(_PythonEnvironment.PythonExecutable) + " " + masterScriptFilename);
