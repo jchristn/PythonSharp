@@ -127,9 +127,13 @@
                 _Logging.LogShellCommand(cmd, result);
 
                 if (result != 0)
+                {
                     Log(Severity.Warn, "unable to setup virtual environment at " + _PythonEnvironment.VirtualEnvironmentPath);
+                }
                 else
+                {
                     Log(Severity.Info, "created virtual environment at " + _PythonEnvironment.VirtualEnvironmentPath);
+                }
             }
             else
             {
@@ -244,6 +248,8 @@
 
         private string BuildPipRequirementsCommand(string requirementsFile)
         {
+            if (String.IsNullOrEmpty(requirementsFile)) return null;
+
             return
                 PreparedPath(_PythonEnvironment.PipCommand) + " install "
                 + (_PythonEnvironment.QuietRequirementsInstallation ? "-q " : "")

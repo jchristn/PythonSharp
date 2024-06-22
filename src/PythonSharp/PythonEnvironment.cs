@@ -13,6 +13,7 @@
 
         /// <summary>
         /// Provide the full path to the Python executable.  Provide a full path and filename.
+        /// When a virtual environment is specified, upon successful initialization, this variable will be changed to the executable containing within the virtual environment.
         /// </summary>
         public string PythonExecutable
         {
@@ -32,6 +33,7 @@
 
         /// <summary>
         /// Provide the full path to the pip executable.  Provide a full path and filename.
+        /// When a virtual environment is specified, upon successful initialization, this variable will be changed to the executable containing within the virtual environment.
         /// </summary>
         public string PipCommand
         {
